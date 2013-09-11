@@ -11,32 +11,34 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
     
  		if @post.save
- 			redirect_to @post
- 		else
- 			render 'new'
+    		flash[:notice] = "You created a new post"
+        redirect_to root_path
+		else
+			render 'new'
  		end
   end
 
   def show
   	@post = Post.find(params[:id])
-  	render 'show'
-  end
-
-  def update
-  	@post = Post.find(params[:id])
-
-  	if @post.update(params[:post])
-  		redirect_to @post
-  	else
-  		render 'edit'
-  	end
+ # 	render 'show'
   end
 
   def edit
   	@post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
   private
+
   def post_params
     params.require(:post).permit!
   end
