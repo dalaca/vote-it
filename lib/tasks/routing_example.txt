@@ -1,0 +1,10 @@
+ROUTES
+
+INDEX			/controller.format						GET			example#index
+NEW				/controller/new.format 				GET			example#new 			new_example_path
+CREATE		/controller/.format						POST		example#create
+SHOW			/controller/:id.format				GET			example#show      example_path
+PATCH			/controller/:id.format				PATCH		example#update
+EDIT			/controller/:id/edit.format		GET			example#edit 			edit_example_path
+UPDATE		/controller/:id.format				POST		example#update
+DESTROY																					example#destroy
