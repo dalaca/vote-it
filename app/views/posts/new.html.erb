@@ -1,9 +1,5 @@
 <p>Create a new post</p>
 
-<% if @post.errors.any? %>
-	<% @post.errors.full_messages.each do |msg| %>
-		<%= msg %>
-		<% end %>
-<% end %>
+
 <%= render 'form' %>
 
