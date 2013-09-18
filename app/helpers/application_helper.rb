@@ -1,2 +1,10 @@
 module ApplicationHelper
+	def fix_url(url)
+		url.starts_with?("http") ? url : "http://#{url}"
+	end
+
+	def pretty_date(dt)
+
+		dt.strftime("%m/%d/%Y %l:%M%P %Z") #03/14/2013 9:09pm EST
+	end
 end
